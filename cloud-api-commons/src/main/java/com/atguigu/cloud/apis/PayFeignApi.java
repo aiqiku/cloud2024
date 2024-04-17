@@ -32,4 +32,17 @@ public interface PayFeignApi {
      ResultData<List> payList();
     @GetMapping("/pay/get/info")
     String mylb();
+    @GetMapping(value = "/pay/circuit/{id}")
+    String myCircuit(@PathVariable("id") Integer id);
+    @GetMapping(value = "/pay/bulkhead/{id}")
+    String myBulkhead(@PathVariable("id") Integer id);
+    /**
+     * Resilience4j Ratelimit 的例子
+     * @param id
+     * @return
+     */
+    @GetMapping(value = "/pay/ratelimit/{id}")
+    public String myRatelimit(@PathVariable("id") Integer id);
+
+
 }
